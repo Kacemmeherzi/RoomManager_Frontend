@@ -1,0 +1,72 @@
+/* navbar.component.css */
+
+/* Navbar styles */
+.navbar {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  /* Container styles */
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+  }
+  
+  /* Brand styles */
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-brand .navbar-item {
+    margin-right: 20px;
+    font-weight: bold;
+  }
+  
+  /* Burger icon styles */
+  .navbar-burger {
+    display: none; /* Hide burger icon by default */
+    cursor: pointer;
+  }
+  
+  .navbar-burger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin-bottom: 5px;
+  }
+  
+  /* Navbar menu styles */
+  .navbar-menu {
+    flex-grow: 1;
+  }
+  
+  /* Navbar links styles */
+  .navbar-item {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #fff;
+  }
+  .navbar-logo{
+    width: 100px; 
+    height: auto;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .navbar-burger {
+      display: block; /* Display burger icon for mobile */
+    }
+  
+    .navbar-menu {
+      display: none; /* Hide navbar menu by default */
+    }
+  
+    .navbar-menu.active {
+      display: block; /* Show navbar menu when burger icon is clicked */
+    }
+  }
+  
