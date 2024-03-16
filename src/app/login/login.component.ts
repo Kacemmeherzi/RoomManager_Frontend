@@ -15,7 +15,16 @@ export class LoginComponent  {
   
 
   constructor(private authService: AuthService, private router : Router) {}
-    
+  isLoggedIn(): boolean {
+    return this.authService.logged;
+  }
+  ngOnInit(): void {
+    if (this.authService.isAuthenticated()) {
+      this.authService.logged = true;
+      this.router.navigate(['/home']);
+    }
+  }
+
 
 
    login(): void {
@@ -31,6 +40,8 @@ export class LoginComponent  {
           // Check if login was successful (adjust this based on your server response)
           if (response.body && response.body.message == "connected") {
             // Navigate to the home component
+            this.authService.logged = true ;
+            localStorage.setItem('token',response.body.token)
             this.router.navigate(['/home']);
             console.log('Login successful', response);
           } else {
@@ -45,7 +56,9 @@ export class LoginComponent  {
         console.error('Login failed', error);
       }
     );
+    
   }
+  
     
     
   }

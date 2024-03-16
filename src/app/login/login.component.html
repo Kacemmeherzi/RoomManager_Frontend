@@ -1,5 +1,7 @@
+<div *ngIf="!isLoggedIn()">
 <form (submit)="login()">
   <input [(ngModel)]="username" name="username" type="text" placeholder="Username" required />
   <input [(ngModel)]="password" name="password" type="password" placeholder="Password" required />
   <button type="submit">Login</button>
 </form>
+</div>
