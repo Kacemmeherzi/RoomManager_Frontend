@@ -12,7 +12,7 @@ import { RoomComponent } from './room/room.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
-import { CalendarComponent } from './calendar/calendar.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -21,14 +21,14 @@ import { CalendarComponent } from './calendar/calendar.component';
     HomeComponent,
     RoomComponent,
     NavbarComponent,
-    CalendarComponent
+    
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
