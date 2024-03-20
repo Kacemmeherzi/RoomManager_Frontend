@@ -12,7 +12,7 @@ import { HttpResponse } from '@angular/common/http';
 export class LoginComponent  {
   username: string = '';
   password: string = '';
-  
+  hidelogin : boolean = false ; 
 
   constructor(private authService: AuthService, private router : Router) {}
   isLoggedIn(): boolean {
@@ -23,6 +23,10 @@ export class LoginComponent  {
       this.authService.logged = true;
       this.router.navigate(['/home']);
     }
+
+  }
+  hideloginform(): void {
+    this.hidelogin = !this.hidelogin
   }
 
 
@@ -41,6 +45,9 @@ export class LoginComponent  {
           if (response.body && response.body.message == "connected") {
             // Navigate to the home component
             this.authService.logged = true ;
+            this.authService.user = response.body.user
+            console.log(response.body.user);
+            
             localStorage.setItem('token',response.body.token)
             this.router.navigate(['/home']);
             console.log('Login successful', response);
