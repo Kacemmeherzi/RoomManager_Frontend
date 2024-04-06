@@ -1,0 +1,41 @@
+<!-- form.component.html -->
+<div class ='grid' *ngIf="isAuthed( )">
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
+  <h1>Create youre reservation</h1>
+
+  <mat-form-field class="item">
+    <mat-label>Select Option</mat-label>
+    <mat-select formControlName="selectedOption">
+      <mat-option *ngFor="let room of rooms" [value]="room">
+        {{ room.roomDesc }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="form.get('selectedOption')?.invalid && form.get('selectedOption')?.touched">
+      Please select an option.
+    </mat-error>
+  </mat-form-field>
+  
+  <mat-form-field class = "item">
+    <mat-label>Select Date</mat-label>
+    <input matInput [matDatepicker]="pickerstart" formControlName="selectedStartDate">
+    <mat-datepicker-toggle matSuffix [for]="pickerstart"></mat-datepicker-toggle>
+    <mat-datepicker #pickerstart></mat-datepicker>
+    <mat-error *ngIf="form.get('selectedStartDate')?.invalid && form.get('selectedStartDate')?.touched">
+      Please select a date.
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class = "item">
+    <mat-label>Select Date</mat-label>
+    <input matInput   [matDatepicker]="pickerend" formControlName="selectedEndDate">
+    <mat-datepicker-toggle matSuffix [for]="pickerend"></mat-datepicker-toggle>
+    <mat-datepicker #pickerend></mat-datepicker>
+    <mat-error *ngIf="form.get('selectedEndDate')?.invalid && form.get('selectedEndDate')?.touched">
+      Please select a date.
+    </mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button type="submit">Submit</button>
+</form>
+
+<h1>Available durations </h1>
+</div>

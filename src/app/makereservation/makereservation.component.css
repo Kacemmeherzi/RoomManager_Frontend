@@ -1,0 +1,17 @@
+.form {
+    display: flex     ;
+    justify-content: flex-start; /* Center horizontally */
+    align-items:flex-start; /* Center vertically */
+    flex-direction: column;
+    padding: 1%;
+    margin: 1%;
+    width:90%;
+    border: 10;
+    background-color: rgb(51, 130, 199);
+  }
+  
+.item {
+  width: 90% ;
+}
+
+.grid { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: 100vh; }
