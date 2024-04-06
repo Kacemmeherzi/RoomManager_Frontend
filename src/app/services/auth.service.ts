@@ -2,17 +2,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Observable, catchError, throwError } from 'rxjs';
-import { User } from '../models/user.model';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export default class AuthService {
    private  apiUrl = 'http://localhost:3000/auth/';
-      logged : boolean = false   ;
-      user? : User    ;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router : Router) {}
   isAuthenticated(): boolean {
     return !!localStorage.getItem('token');
   }
@@ -46,5 +44,10 @@ export default class AuthService {
       })
     );
   }
+  logout () {
+localStorage.clear()
+
+  }
+  
 
 }

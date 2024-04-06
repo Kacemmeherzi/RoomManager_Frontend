@@ -8,12 +8,13 @@ import { Room } from '../models/room.model';
   providedIn: 'root'
 })
 export class RoomService {
-  private apiUrl = 'http://localhost:3000/room';
+  private apiUrl = 'http://localhost:3000/room/freerooms';
 
   constructor(private http: HttpClient) {}
   // Get all rooms
   getRooms(): Observable<Room[]> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('token')}`);
+
 
     return this.http.get<Room[]>(this.apiUrl,{headers});
   }
@@ -31,7 +32,7 @@ export class RoomService {
 
   // Update room
   updateRoom(room: Room): Observable<Room> {
-    const url = `${this.apiUrl}/${room.id}`;
+    const url = `${this.apiUrl}/${room._id}`;
     return this.http.put<Room>(url, room);
   }
 
