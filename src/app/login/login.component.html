@@ -1,21 +1,21 @@
 
 
-<div *ngIf="!isLoggedIn()" >
-  <div  *ngIf="!hidelogin">
+<div *ngIf="!isLoggedIn()"  >
+  <div  *ngIf="!hidelogin" class="container">
     <h2>Login</h2>
 
-<form (submit)="login()">
+<form (submit)="login()" class="item">
   <input [(ngModel)]="username" name="username" type="text" placeholder="Username" required />
-  <input [(ngModel)]="password" name="password" type="password" placeholder="Password" required />
-  <button  type="submit">Login</button>
+  <input [(ngModel)]="password" name="password" type="password" placeholder="Password" required  />
+  <button class="rounded-button" mat-flat-button type="submit" >Login</button>
 </form>
-<p>Don't have an account? <button (click)="hideloginform()">Register here</button></p>
+<p >Don't have an account? <button class="rounded-button" mat-flat-button (click)="hideloginform()">Register here</button></p>
 
 </div>
 
-<div  *ngIf="hidelogin">
+<div  *ngIf="hidelogin" class="item">
   <app-registration></app-registration>
-  <p>Already had one ?  <button  (click)="hideloginform()">Login here</button></p>
+  <p>Already had one ?  <button class="rounded-button" mat-flat-button	(click)="hideloginform()">Login here</button></p>
 
   </div>
   </div>
