@@ -18,9 +18,10 @@ export class RoomComponent {
  
   ngOnInit(): void {
     this.getRooms();
+    
   }
   isLoggedIn(): boolean {
-    return this.authService.logged;
+    return this.authService.isAuthenticated();
   }
   getRooms(): void {
     this.roomService.getRooms()

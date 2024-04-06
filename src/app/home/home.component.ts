@@ -12,6 +12,6 @@ constructor( private authService: AuthService, private router : Router){
  
 }
 isLoggedIn(): boolean {
-  return this.authService.logged;
+  return this.authService.isAuthenticated();
 }
 }

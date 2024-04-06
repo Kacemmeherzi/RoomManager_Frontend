@@ -16,7 +16,7 @@ export class RegistrationComponent {
 
 
   isLoggedIn(): boolean {
-    return this.authservice.logged;
+    return this.authservice.isAuthenticated();
   }
 
   register(): void {
