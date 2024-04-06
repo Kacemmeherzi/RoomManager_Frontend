@@ -1,7 +1,8 @@
 export interface Room {
-    id : string 
+    _id : string 
     roomNumber: number;
     roomDesc: string;
+    roomName : string ;
   
   }
   

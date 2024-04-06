@@ -1,7 +1,9 @@
+import { Room } from "./room.model";
+
 export interface Reservation {
-    id : string  ;
+    _id : string  ;
     owner : string ;
-    room : string ;
+    room : Room ;
     started : Date ;
     ended :     Date;
     duration : number   ;
