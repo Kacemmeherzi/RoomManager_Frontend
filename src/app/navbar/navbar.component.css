@@ -2,7 +2,7 @@
 
 /* Navbar styles */
 .navbar {
-    background-color: #333;
+    background-color: #c75050;
     color: #fff;
   }
   
@@ -51,7 +51,7 @@
     color: #fff;
   }
   .navbar-logo{
-    width: 100px; 
+    width: 50px; 
     height: auto;
   }
   

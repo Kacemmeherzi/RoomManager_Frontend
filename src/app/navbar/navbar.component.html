@@ -1,6 +1,6 @@
 <!-- navbar.component.html -->
 
-<nav class="navbar">
+<nav class="navbar" *ngIf="isLoggedIn()">
     <div class="container">
       <div class="navbar-brand">
         <img  class="navbar-logo"  src="assets/porte.png" alt="Logo">
@@ -13,9 +13,12 @@
       </div>
       <div id="navMenu" class="navbar-menu">
         <div class="navbar-end">
-          <a class="navbar-item" href="#">Home</a>
-          <a class="navbar-item" href="#">Rooms</a>
-          <a class="navbar-item" href="#">About</a>
+          <a class="navbar-item" routerLink="home">Home</a>
+          <a class="navbar-item" routerLink="rooms">Available room</a>
+          <a class="navbar-item" routerLink="makereservation">Make a reservation</a>
+          <a class="navbar-item" (click)="logout()">Logout</a>
+
+
           <!-- Add more menu items as needed -->
         </div>
       </div>
