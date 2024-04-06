@@ -1,17 +1,25 @@
 <!-- room-list.component.html -->
 
-<!-- Room list container -->
 <div class="room-list-container" *ngIf="isLoggedIn()">
 
     <!-- Room list header -->
-    <h2 class="room-list-header">Room List</h2>
+    <h2 class="room-list-header">Available Rooms </h2>
   
     <!-- Room list -->
-    <ul>
-      <li *ngFor="let room of rooms" class="room-item">
-        <span class="room-name">{{ room.roomDesc }}</span> (Capacity: <span class="room-capacity">{{ room.roomNumber }}</span>)
-      </li>
-    </ul>
+    
+       
+    <mat-list *ngFor="let room of rooms">
+      <mat-list-item >
+        <mat-icon matListItemIcon>book</mat-icon>
+        <div matListItemTitle > Room id  : {{room._id}} </div>
+        <div >Room number: {{ room.roomNumber }}</div>
+        <div>Room name  {{ room.roomName  }}</div>
+
+
+        <div>Room description : {{ room.roomDesc  }}</div>
+
+      </mat-list-item>
+    </mat-list>
   
   </div>
   
