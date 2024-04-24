@@ -1,8 +1,10 @@
 
 
-<div *ngIf="!isLoggedIn()"  >
+<ng-container *ngIf="!isLoggedIn()"  >
+
   <div  *ngIf="!hidelogin" class="container">
     <h2>Login</h2>
+   <div *ngIf="isLoading "><app-loading></app-loading></div>
 
 <form (submit)="login()" class="item">
   <input [(ngModel)]="username" name="username" type="text" placeholder="Username" required />
@@ -12,10 +14,13 @@
 <p >Don't have an account? <button class="rounded-button" mat-flat-button (click)="hideloginform()">Register here</button></p>
 
 </div>
-
-<div  *ngIf="hidelogin" class="item">
+<ng-container  *ngIf="hidelogin">
+  <div  class="container">
   <app-registration></app-registration>
   <p>Already had one ?  <button class="rounded-button" mat-flat-button	(click)="hideloginform()">Login here</button></p>
+</div>
+</ng-container>
 
-  </div>
-  </div>
+</ng-container>  
+
+ 
