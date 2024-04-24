@@ -18,6 +18,11 @@ export class ReservationService {
     const url = `${this.apiUrl}/byuserid/${localStorage.getItem("userid")}`;
     return this.http.get<Reservation[]>(url,{headers});
   }
+  getallreservations(): Observable<HttpResponse<Reservation[]>> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('token')}`);
+    const url = `${this.apiUrl}/`;
+    return this.http.get<Reservation[]>(url,{headers,observe:'response'});
+  }
 
 
   addreservation(room : Room , startedDate : Date , endedDate : Date ) : Observable<HttpResponse<any>> {
@@ -31,16 +36,16 @@ const body  = {
 }
 
 
-    return this.http.post(url , body, { headers ,observe: 'response'}).pipe(
-      catchError(error => {
-        console.error('Error during registration', error);
-        return throwError(error)
-      })
-    );;
+    return this.http.post(url , body, { headers ,observe: 'response'})  
   }
 
 
+deleteReservation (id : string) { 
+  const headers = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('token')}`);
+  const url = `${this.apiUrl}/delete/`+id;
+  return this.http.delete(url, {headers, observe: "response"})
 
+}
 
 
 
