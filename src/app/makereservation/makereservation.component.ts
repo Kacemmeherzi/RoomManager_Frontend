@@ -50,6 +50,7 @@ onSubmit() {
   console.log(this.form.value);
   
   this.start   = this.datePipe.transform(this.form.value.selectedStartDate, 'yyyy-MM-ddTHH:mm:ss');
+  
  this.end = this.datePipe.transform(this.form.value.selectedEndDate, 'yyyy-MM-ddTHH:mm:ss');
  console.log("sa",this.start);
 console.log("end", this.end) 
@@ -60,24 +61,24 @@ this.addreservation(this.start,this.end,this.room)
 }
 addreservation(start , end ,room : Room) : void {
   
-  this.reservationService.addreservation(room,start,end).subscribe(
-    (response) => {
+  this.reservationService.addreservation(room,start,end).subscribe({
+  next :   (response) => {
       if (response.status === 201) {
         //
-        if (response.body) {
-                            console.log('created', response);
-        } else {
+       
+          alert(response.body.message)               
+      
           console.error('   failed', response.body);
         }
-      } else {
+      else {
         console.error(' failed', response.status);
       }
-    },
-    (error) => {
-      // Handle login error
-      console.error('  failed', error);
-    }
-  );
+    },  
+  error : (err) =>{
+    alert(err.message)
+  }
+  
+  });
   
 }
 }
