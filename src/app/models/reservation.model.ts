@@ -7,5 +7,6 @@ export interface Reservation {
     started : Date ;
     ended :     Date;
     duration : number   ;
+    validation : boolean ; 
 
 }
