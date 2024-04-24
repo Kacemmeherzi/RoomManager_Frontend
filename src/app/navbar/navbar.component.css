@@ -69,4 +69,6 @@
       display: block; /* Show navbar menu when burger icon is clicked */
     }
   }
-  
+  .logout {
+    float: right; /* Aligns the logout button to the right */
+  }
