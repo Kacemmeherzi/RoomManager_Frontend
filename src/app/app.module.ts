@@ -15,7 +15,6 @@ import { MakereservationComponent } from './makereservation/makereservation.comp
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatListModule } from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
-import {Component} from '@angular/core';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {FormGroup, FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -23,6 +22,11 @@ import {DatePipe, JsonPipe} from '@angular/common';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {provideNativeDateAdapter} from '@angular/material/core';
+import { LoadingComponent } from './loading/loading.component';
+import {MatCardModule} from '@angular/material/card';
+import { CalendarComponent } from './calendar/calendar.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { AvailableDurationsComponent } from './available-durations/available-durations.component'; 
 
 @NgModule({
   declarations: [
@@ -34,14 +38,18 @@ import {provideNativeDateAdapter} from '@angular/material/core';
     
     RegistrationComponent,
           ReservationComponent,
-          MakereservationComponent
+          MakereservationComponent,
+          LoadingComponent,
+          CalendarComponent,
+          AvailableDurationsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,MatListModule,MatIconModule,MatFormFieldModule, MatInputModule,
-     MatSelectModule,MatFormFieldModule, MatDatepickerModule, FormsModule, ReactiveFormsModule, JsonPipe 
+     MatSelectModule,MatFormFieldModule, MatDatepickerModule, FormsModule, ReactiveFormsModule,   MatCardModule,FullCalendarModule,
+     
     
   ],
   providers: [AuthService, provideAnimationsAsync(),provideNativeDateAdapter(),DatePipe],
