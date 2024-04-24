@@ -26,6 +26,6 @@ export class RoomComponent {
   getRooms(): void {
     this.roomService.getRooms()
       .subscribe(rooms => this.rooms = rooms);
-      console.log(this.rooms)
+      console.log()
   }
 }

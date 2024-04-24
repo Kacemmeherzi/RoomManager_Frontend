@@ -5,21 +5,31 @@
     <!-- Room list header -->
     <h2 class="room-list-header">Available Rooms </h2>
   
-    <!-- Room list -->
+    <div class="card">
+ 
+      <mat-card class="grid-item" *ngFor="let room of rooms">
+        <mat-card-header>
+
+          <mat-card-title>Room</mat-card-title>
+          
+          <mat-card-subtitle>{{room.roomDesc}}</mat-card-subtitle>
+          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="window"></mat-icon>
+        </mat-card-header>
+        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+
+        <mat-card-content>
+          <p>Name : {{ room.roomName}}</p>
+          <p>Number : {{ room.roomNumber}}</p>
+         
     
-       
-    <mat-list *ngFor="let room of rooms">
-      <mat-list-item >
-        <mat-icon matListItemIcon>book</mat-icon>
-        <div matListItemTitle > Room id  : {{room._id}} </div>
-        <div >Room number: {{ room.roomNumber }}</div>
-        <div>Room name  {{ room.roomName  }}</div>
-
-
-        <div>Room description : {{ room.roomDesc  }}</div>
-
-      </mat-list-item>
-    </mat-list>
+    
+          <p></p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>Make a reservation</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
   
   </div>
   
