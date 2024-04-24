@@ -1,23 +1,33 @@
 <!-- room-list.component.html -->
 
 <!-- Room list container -->
-<div class="room-list-container" *ngIf="isLoggedIn()">
+<div  *ngIf="isLoggedIn()">
 
-    <!-- Room list header -->
     <h2 class="room-list-header" mat-subheader>Reservation List</h2>
   
-    <!-- Room list -->
    
-    <mat-list *ngFor="let reservation of reservations">
-      <mat-list-item >
-        <mat-icon matListItemIcon>book</mat-icon>
-        <div matListItemTitle > Reservation id  : {{reservation._id}} </div>
-        <div >Duration: {{ reservation.duration }}</div>
-        <div>Start At: {{ reservation.started |date }}</div>
+    <div class="card">
+ 
+  <mat-card class="grid-item" *ngFor="let reservation of reservations">
+    <mat-card-header>
+      <mat-card-title>Reservation</mat-card-title>
+      <mat-card-subtitle>{{reservation.duration}}</mat-card-subtitle>
+      <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="book"></mat-icon>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Started : {{ reservation.started |date}}</p>
+      <p>Started : {{ reservation.ended |date}}</p>
+      <p>validation  : {{ reservation.validation}}</p>
+      <p>room reserved : {{ reservation.room._id}}</p>
 
-        <div>Ended At : {{ reservation.ended | date }}</div>
 
-      </mat-list-item>
-    </mat-list>
-         
-  </div>
+
+      <p></p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>Modify</button>
+      <button mat-button (click)="deleteRerservation(reservation._id)">Delete</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+  </div>  

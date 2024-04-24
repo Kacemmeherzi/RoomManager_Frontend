@@ -1,0 +1,20 @@
+.card {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 100px); /* You can adjust the height as needed */
+    column-gap: 100px; /* Adjust the gap between columns */
+    row-gap: 200px; /* Adjust the gap between rows */
+  
+  }
+  
+  .grid-item {
+    position: relative;
+    background-color: #f0f0f0; 
+    border: 1px solid #ccc; 
+    width: 300px;
+    height: 250px;
+  }
+  .grid-item  mat-icon{
+    position: absolute;
+    top: 20px;
+    right: 10px;}
