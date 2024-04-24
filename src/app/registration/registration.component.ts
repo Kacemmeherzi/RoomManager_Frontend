@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import AuthService from '../services/auth.service';
 import { HttpResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { LoadingService } from '../services/laoding.service';
 
 @Component({
   selector: 'app-registration',
@@ -12,7 +13,7 @@ export class RegistrationComponent {
   username: string = '';
   password: string = '';
   email : string = '' ; 
-  constructor(private authservice : AuthService , private router : Router){}
+  constructor(private authservice : AuthService , private router : Router, private loadingService : LoadingService){}
 
 
   isLoggedIn(): boolean {
@@ -24,27 +25,28 @@ export class RegistrationComponent {
       console.error('Username and password are required');
       return; // Prevent form submission
     }
-
+    
+this.loadingService.show()
     this.authservice.register(this.username, this.password,this.email).subscribe(
-      (response: HttpResponse<any>) => {
-        // Check the status code
-        if (response.status === 201) {
-          // Check if login was successful (adjust this based on your server response)
-          if (response.body) {
-                    
-            console.log('registration successful', response);
-          } else {
-            console.error('registration failed', response.body);
-          }
-        } else {
-          console.error('registration failed', response.status);
-        }
-      },
-      (error) => {
-        // Handle login error
-        console.error('registration  failed', error);
-      }
-    );
-  }
+   {   next : (Response : HttpResponse<any>) => {
+            if(Response.status===201 ){
+              alert("created");
+              
+              this.loadingService.hide()
 
+            }
+
+   },
+
+     error :  (err) => {
+      this.loadingService.hide()
+      console.log(err.message);
+      alert(err.message)
+      
+
+     }
+
+   }
+    );
+  }    
 }

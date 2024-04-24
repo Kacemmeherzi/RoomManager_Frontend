@@ -6,7 +6,8 @@
   justify-content: center;
   flex-direction: column;
   padding: 8px 12px;
-  
+  background-color: rgb(214, 212, 212);
+
     max-width: 300px;
     margin: auto;
     padding: 100px;}
