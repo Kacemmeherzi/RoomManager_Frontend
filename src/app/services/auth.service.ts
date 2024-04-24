@@ -22,12 +22,7 @@ export default class AuthService {
 
     const body = { username, password };
 
-    return this.http.post(this.apiUrl+"login", body, { headers ,observe: 'response'}).pipe(
-      catchError(error => {
-        console.error('Error during login', error);
-        return throwError(error);
-      })
-    );
+    return this.http.post<any>(this.apiUrl+"login", body  , { observe: 'response' });
   }
   register(username: string, password: string, email : string):Observable<HttpResponse<any>> {
     
@@ -37,15 +32,18 @@ export default class AuthService {
 
     const body = { username, password ,email };
 
-    return this.http.post(this.apiUrl+"register", body, { headers ,observe: 'response'}).pipe(
-      catchError(error => {
-        console.error('Error during registration', error);
-        return throwError(error);
-      })
-    );
+    return this.http.post<any>(this.apiUrl+"register", body, { observe: 'response' })
+  
+       
   }
   logout () {
 localStorage.clear()
+
+  }
+  saveUser(data) {
+
+    localStorage.setItem("userid",data.user._id)
+    localStorage.setItem("token",data.token)
 
   }
   
