@@ -1,0 +1,11 @@
+<ng-container *ngIf="isauthed()">
+    <div>
+        <button (click)="nextEvent()" [disabled]="disabled">
+          <i >Make Reservation</i>
+        </button>
+       
+      </div>
+      
+    <full-calendar #fullcalendar [options]="calendarOptions"  [events]="events"></full-calendar>
+</ng-container>
+
