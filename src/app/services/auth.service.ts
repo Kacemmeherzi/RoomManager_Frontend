@@ -22,7 +22,7 @@ export default class AuthService {
 
     const body = { username, password };
 
-    return this.http.post<any>(this.apiUrl+"login", body  , { observe: 'response' });
+    return this.http.post<any>(this.apiUrl+"signup", body  , { observe: 'response' });
   }
   register(username: string, password: string, email : string):Observable<HttpResponse<any>> {
     
@@ -32,7 +32,7 @@ export default class AuthService {
 
     const body = { username, password ,email };
 
-    return this.http.post<any>(this.apiUrl+"register", body, { observe: 'response' })
+    return this.http.post<any>(this.apiUrl+"signin", body, { observe: 'response' })
   
        
   }
