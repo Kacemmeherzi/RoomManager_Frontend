@@ -10,6 +10,8 @@ import { Room } from '../models/room.model';
 })
 export class ReservationService {
   private apiUrl = 'http://localhost:3000/reservation';
+  private apiUrl1 = 'http://localhost:3000/operation';
+
 
   constructor(private http: HttpClient, private authservice : AuthService) {}  
  
@@ -40,10 +42,19 @@ const body  = {
   }
 
 
-deleteReservation (id : string) { 
+deleteReservation (reservationid  , operation) { 
   const headers = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('token')}`);
-  const url = `${this.apiUrl}/delete/`+id;
-  return this.http.delete(url, {headers, observe: "response"})
+
+
+  const url1 = `${this.apiUrl1}/createop/`;
+  const body  = {
+    "resid" : reservationid ,
+    "oper" : 'deleteoperation' ,
+    "content" : "",
+    "userid" : localStorage.getItem("userid") ,
+
+  }
+  return this.http.post(url1,body, {headers, observe: "response"})
 
 }
 
