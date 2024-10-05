@@ -14,8 +14,8 @@ const routes: Routes = [
   { path: 'rooms', component: RoomComponent },
   { path: 'register', component: RegistrationComponent },
   {path : 'makereservation', component :MakereservationComponent},
-  {path : 'reservation', component :ReservationComponent}
-  , {path : 'calendar' , component : CalendarComponent},
+  {path : 'reservation', component :ReservationComponent}, 
+  {path : 'calendar' , component : CalendarComponent},
   {path : 'registration' , component :RegistrationComponent}
 
   
