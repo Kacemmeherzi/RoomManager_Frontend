@@ -40,11 +40,12 @@ export class ReservationComponent {
   deleteRerservation(id) {
     console.log(id);
     
-    this.reservationservice.deleteReservation(id).subscribe(
+    this.reservationservice.deleteReservation(id,'delete').subscribe(
       {next :(Response)=>{
         console.log(Response);
+        alert("added , check your email")
         this.getReservations()
       }}
-    )
+    )   
   }
 }
